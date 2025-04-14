@@ -5,6 +5,7 @@ The Credits component contains information for Credits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
+import './Credits.css'
 
 const Credits = (props) => {
     // Create the list of Credit items
@@ -25,12 +26,13 @@ const Credits = (props) => {
   };
   // Render the list of Debit items and a form to input new Credit item
   return (
-    <div>
+    <div className="credits-container">
       <h1>Credits</h1>
       <p>Account Balance: ${props.accountBalance.toFixed(2)}</p>
       {CreditsView()}
       <form onSubmit={props.addCredit}>
       </form>
+      <br/>
       <form onSubmit={handleSubmit}>
         <input type="text" name="description" />
         <input type="number" name="amount" step="0.01"/>

@@ -2,6 +2,7 @@
     text-align: center;
   }
 
-.home-link  {
+.home-link button {
     width: 200px; 
+    font-size: 25px;
 }
