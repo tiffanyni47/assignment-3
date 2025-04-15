@@ -49,19 +49,19 @@ class App extends Component {
     const totalCredits = this.state.creditList.reduce((sum, c) => sum + c.amount, 0);
     const totalDebits = this.state.debitList.reduce((sum, d) => sum + d.amount, 0);
     const balance = totalCredits - totalDebits;
-    this.setState({accountBalance: parseFloat(balance.toFixed(2))});
+    this.setState({accountBalance: Number(balance.toFixed(2))});
   }
 
   //Update the state based on user input of new credits
   addCredit = (description, amount) => {
-    const newCredit = {description, amount: parseFloat(amount), date: new Date().toISOString()};
+    const newCredit = {description, amount: Number(amount), date: new Date().toISOString()};
     const updatedCredits = [...this.state.creditList, newCredit];
     this.setState({creditList: updatedCredits}, this.updateAccountBalance);
   }
 
   //Update the state based on user input of new debits
   addDebit = (description, amount) => {
-    const newDebit = {description, amount: parseFloat(amount), date: new Date().toISOString()};
+    const newDebit = {description, amount: Number(amount), date: new Date().toISOString()};
     const updatedDebits = [...this.state.debitList, newDebit];
     this.setState({debitList: updatedDebits}, this.updateAccountBalance);
   }
