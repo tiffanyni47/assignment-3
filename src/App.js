@@ -54,22 +54,14 @@ class App extends Component {
 
   //Update the state based on user input of new credits
   addCredit = (description, amount) => {
-    const newCredit = {
-      description,
-      amount: parseFloat(amount),
-      date: new Date().toISOString()
-    };
+    const newCredit = {description, amount: parseFloat(amount), date: new Date().toISOString()};
     const updatedCredits = [...this.state.creditList, newCredit];
     this.setState({creditList: updatedCredits}, this.updateAccountBalance);
   }
 
   //Update the state based on user input of new debits
   addDebit = (description, amount) => {
-    const newDebit = {
-      description,
-      amount: parseFloat(amount),
-      date: new Date().toISOString()
-    };
+    const newDebit = {description, amount: parseFloat(amount), date: new Date().toISOString()};
     const updatedDebits = [...this.state.debitList, newDebit];
     this.setState({debitList: updatedDebits}, this.updateAccountBalance);
   }
@@ -90,18 +82,10 @@ class App extends Component {
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (
-      <Credits
-        credits={this.state.creditList}
-        accountBalance={this.state.accountBalance}
-        handleAddCredit={this.addCredit}
-      />
+      <Credits credits={this.state.creditList} accountBalance={this.state.accountBalance} handleAddCredit={this.addCredit} />
     )
     const DebitsComponent = () => (
-      <Debits
-        debits={this.state.debitList}
-        accountBalance={this.state.accountBalance}
-        handleAddDebit={this.addDebit}
-      />
+      <Debits debits={this.state.debitList} accountBalance={this.state.accountBalance} handleAddDebit={this.addDebit} />
     )
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
